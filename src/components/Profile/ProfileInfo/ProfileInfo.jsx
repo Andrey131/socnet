@@ -1,5 +1,6 @@
 import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) =>{
 
@@ -18,7 +19,7 @@ const ProfileInfo = (props) =>{
                     <a className={s.nameText}>{props.profile.fullName}</a>
                 </div>
                 <div>
-                    <a className={s.statusText}>{props.profile.aboutMe}</a>
+                    <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                 </div>
             </div>
 
