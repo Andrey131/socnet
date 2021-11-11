@@ -1,7 +1,7 @@
-import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import React from "react";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profileReducer";
+import { Input, Button, ButtonGroup, Text, Box } from "@chakra-ui/react"
+
 
 
 const MyPosts = (props) => {
@@ -18,20 +18,20 @@ const MyPosts = (props) => {
     }
 
     return (
-        <div className={s.postsBlock}>
-            <div>
-                <h2>My post</h2>
-                <div>
-                    <textarea onChange={onPostChange} value ={props.newPostText}/>
-                </div>
-                <div>
-                    <button onClick={ onAddPost }>Add post</button>
-                </div>
-                <div className={s.posts}>
+        <Box p={4}>
+                <Text fontSize="xl" as="b">My post</Text>
+                
+                <Input  variant="filled"
+                        focusBorderColor="pink.400"
+                        mb={3}
+                        onChange={onPostChange} value ={props.newPostText}/>
+                
+                <Button onClick={ onAddPost }>Add post</Button>
+                
+                <Box mt={4}>
                     {postsElements}
-                </div>
-            </div>
-        </div>
+                </Box>
+        </Box>
     );
 }
 

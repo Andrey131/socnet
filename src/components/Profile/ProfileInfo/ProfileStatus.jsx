@@ -1,4 +1,5 @@
 import React from "react";
+import { Input } from "@chakra-ui/react"
 
 class ProfileStatus extends React.Component {
     state={
@@ -36,7 +37,7 @@ class ProfileStatus extends React.Component {
 
                 {this.state.editMode &&
                     <div>
-                        <input onChange={this.onStatusChange} autoFocus={true}
+                        <Input onChange={this.onStatusChange} autoFocus={true}
                                onBlur={this.deactivateEditMode} value={this.state.status}/>
                     </div>
                 }

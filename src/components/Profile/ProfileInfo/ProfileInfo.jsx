@@ -1,29 +1,26 @@
-import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus"
+import { Image, Box, Grid, Text } from "@chakra-ui/react"
 
-const ProfileInfo = (props) =>{
+const ProfileInfo = (props) => {
 
-    if(!props.profile){
+    if (!props.profile) {
         return <Preloader/>
     }
+
     return (
-        <div className={s.profileInfo}>
+        <Grid templateColumns="2fr 6fr" p={4}>           
+            <Image  
+                    boxSize="200px"
+                    borderRadius="full"
+                    src={props.profile.photos.large}/>
 
-            <div>
-                <img src={props.profile.photos.large}/>
-            </div>
+            <Box>
+                <Text as="b" fontSize="5xl">{props.profile.fullName}</Text>  
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>   
+            </Box>
 
-            <div>
-                <div>
-                    <a className={s.nameText}>{props.profile.fullName}</a>
-                </div>
-                <div>
-                    <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
-                </div>
-            </div>
-
-        </div>
+        </Grid>
     );
 }
 

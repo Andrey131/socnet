@@ -7,11 +7,14 @@ import store from './redux/redux-store'
 import './index.css';
 import {BrowserRouter} from "react-router-dom"
 import {Provider} from "react-redux";
+import { ChakraProvider } from "@chakra-ui/react"
 
 ReactDOM.render(
     <BrowserRouter>
         <Provider store={store}>
-            <App/>
+            <ChakraProvider>
+                <App/>
+            </ChakraProvider>
         </Provider>
     </BrowserRouter>,
     document.getElementById('root')
